@@ -1,0 +1,49 @@
+@import url("https://use.typekit.net/lwz3cxl.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #111123;
+  font-family: Rubik, 'Noto Sans JP', sans-serif;;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  position: relative;
+  background: #eff4ff;
+  padding: 2px 5px 2px 20px;
+  font-size: 20px;
+  color: #474747;
+  border-radius: 0 10px 10px 0;
+  transition: 0.5s ease;
+}
+
+h1:before {
+  font-family: "Font Awesome 5 Free";
+  content: "✉️ ";
+  display: inline-block;
+  line-height: 40px;
+  position: absolute;
+  padding: 0em;
+  color: white;
+  background: #81a1e4;
+  font-weight: 900;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  left: -1.35em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 2px #4967b4;
+}
+
+.profile-default-gradient {
+  background: linear-gradient(-45deg, #1b213f, #7077ff);
+}
