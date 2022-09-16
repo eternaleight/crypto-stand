@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 body {
+  overflow-x: hidden;
   background: #111123;
   font-family: Rubik, 'Noto Sans JP', sans-serif;;
   font-weight: 400;
