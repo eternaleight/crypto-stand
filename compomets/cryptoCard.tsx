@@ -40,8 +40,8 @@ const CryptCard = () => {
           >
             <div
               style={{
-                fontSize: "13.92px",
-                lineHeight: "23.664px",
+                fontSize: "13.9px",
+                lineHeight: "23.66px",
                 textDecorationColor: "rgb(117, 189, 255)",
                 WebkitTextFillColor: "rgb(117, 189, 255)",
               }}
@@ -74,7 +74,7 @@ const CryptCard = () => {
               style={{
                 color: "rgba(58, 60, 72, 0.45)",
                 fontSize: "14.72px",
-                lineHeight: "25.024px",
+                lineHeight: "25px",
               }}
               className="exp__description"
             >

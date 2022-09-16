@@ -2,9 +2,10 @@ import { AnimatePresence, motion } from "framer-motion"
 import type { NextPage } from "next"
 import Image from "next/image"
 import CryptoCard from "../compomets/cryptoCard"
-import jscookie from "js-cookie"
+import cookie from "js-cookie"
 
 const Home: NextPage = () => {
+  
   return (
     <div className="flex flex-col items-center min-h-screen text-white min-w-screen">
       <h3 className="absolute text-[25px] text-center top-[435px] z-10">
