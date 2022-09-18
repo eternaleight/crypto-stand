@@ -48,3 +48,24 @@ h1:before {
 .profile-default-gradient {
   background: linear-gradient(-45deg, #1b213f, #7077ff);
 }
+
+
+body {
+  --color-body: #333; /* 本文のテキスト用 */
+  --color-primary: #529fff; /* プライマリー */
+  --color-secondary: #3d3dff; /* セカンダリー */
+  --color-error: #e7edf3; /* エラー用 */  --red: #ff0055;
+  --color-bar: #5C63D4; /* エラー用 */  --red: #ff0055;
+}
+
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-bar);
+  transform-origin: 0%;
+}
+

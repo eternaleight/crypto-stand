@@ -1,4 +1,6 @@
+import {Box, Modal} from "@mui/material"
 import transakSDK from "@transak/transak-sdk"
+import { motion } from "framer-motion"
 
 let transak = () =>
   new transakSDK({
@@ -17,8 +19,15 @@ const openKeyValue = "0x7165662174c8b2A4e97d6321bb8caeBb3179940C"
 const CryptCard = () => {
   return (
     <>
-      <div className="">
-        <h2 style={{ marginLeft: "22px" }} className="text-[30px] w-[100px]">Ethereum 🪙</h2>
+      <motion.div
+        initial={{ y: 40,opacity: 0.2 }}
+        animate={{ y: 0, opacity: 1 }}
+        viewport={{ amount: "some" }}
+        transition={{ duration: 0.3 }}
+      >
+        <h2 style={{ marginLeft: "22px" }} className="text-[30px] w-[100px]">
+          Ethereum 🪙
+        </h2>
         <div className="mx-2 exp__wrapper text-[rgb(51,51,51)]">
           <div
             style={{
@@ -34,7 +43,7 @@ const CryptCard = () => {
               marginRight: "24px",
               marginLeft: "24px",
               marginBottom: "8px",
-              wordBreak: "break-word"
+              wordBreak: "break-word",
             }}
             className={"btn-radius rounded-[6px] card link-edit bg-white"}
           >
@@ -82,7 +91,7 @@ const CryptCard = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
