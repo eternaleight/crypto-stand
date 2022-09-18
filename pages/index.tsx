@@ -1,13 +1,13 @@
-import type { NextPage } from "next"
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import CryptoCard from "../compomets/cryptoCard"
-import Cookie from "js-cookie"
-import { motion, useScroll } from "framer-motion";
-import ModalItem from "../pages/modalItem";
+import { motion, useScroll } from "framer-motion"
+import ModalItem from "../pages/modalItem"
 
-const Home: NextPage = () => {
-    const { scrollYProgress } = useScroll();
-    console.log(scrollYProgress)
+
+const Home: NextPage<IndexPageProps> = ({ initialIconImageUrl }) => {
+  const { scrollYProgress } = useScroll()
+  const IconImage = initialIconImageUrl
 
   return (
     <div className="flex flex-col items-center min-h-screen text-white min-w-screen">
@@ -15,10 +15,9 @@ const Home: NextPage = () => {
         eternaleight
       </h3>
       <motion.div
-        className='progress-bar'
+        className="progress-bar"
         style={{ scaleX: scrollYProgress }}
-      >
-      </motion.div>
+      ></motion.div>
       <div className="">
         <div className="absolute left-[4vw] top-2 text-[30px] tracking-[-.015em]">
           Crypto Stand
@@ -32,8 +31,9 @@ const Home: NextPage = () => {
               width="140px"
               height="140px"
               className="rounded-full"
-              src="/eternaleight.jpg"
+              src={IconImage}
             />
+            {/* <CircularProgress /> */}
           </div>
           <div className="flex">
             <h1 className="absolute top-[-180px] ml-[-80px] lg:ml-[200px] xl:ml-[300px] w-[335px] break-words">
@@ -57,9 +57,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="w-[85vw] flex flex-col items-center">
-        <div
-          className="w-full grid xl:grid-cols-4 lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 max-xs:w-[90vw]"
-        >
+        <div className="w-full grid xl:grid-cols-4 lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 max-xs:w-[90vw]">
           <CryptoCard />
           <CryptoCard />
           <CryptoCard />
@@ -69,11 +67,25 @@ const Home: NextPage = () => {
           <CryptoCard />
           <CryptoCard />
           <div className="h-[10vh]"></div>
-          <ModalItem/>
+          <ModalItem />
         </div>
       </div>
     </div>
   )
+}
+type IndexPageProps = {
+  initialIconImageUrl: string
+}
+
+export const getStaticProps: GetStaticProps<
+  IndexPageProps
+> = async () => {
+const iconImage = "/eternaleight.jpg"
+  return {
+    props: {
+      initialIconImageUrl: iconImage,
+    },
+  }
 }
 
 export default Home
