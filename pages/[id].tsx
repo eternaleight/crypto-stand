@@ -1,4 +1,5 @@
 import { GetServerSideProps, GetStaticProps } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -47,18 +48,18 @@ const Product = ({ product }: Props) => {
 
   return (
     <div>
-      <main className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-55%] text-white">
-        <img
+      <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-55%] text-white">
+        <Image
           className="rounded-[8px]"
           src={product.url}
           width="300"
-          height="400"
+          height="300"
         />
         <p>{product.name}</p>
         <Link href="/">
           <a>Home</a>
         </Link>
-      </main>
+      </div>
     </div>
   )
 }

@@ -61,7 +61,7 @@ const Home: NextPage<IndexPageProps> = ({ initialIconImageUrl }) => {
         </div>
       </div>
       <div className="w-[85vw] flex flex-col items-center">
-        <div className="w-full grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-sm:w-[400px]">
+        <div className="w-full grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-sm:w-[400px] max-sm:mt-[-30px]">
           <CryptoCard />
           <CryptoCard />
           <CryptoCard />
