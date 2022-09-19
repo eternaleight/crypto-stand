@@ -2,41 +2,35 @@ import { GetServerSideProps, GetStaticProps } from "next"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const req = await fetch(`http://localhost:3000/${params?.id}.json`)
-//   const data = await req.json()
+export const getStaticPaths = async () => {
+  const API_URL = process.env.NEXT_PUBLIC_URL
+  const req = await fetch(`${API_URL}/products.json`)
+  const data = await req.json()
 
-//   return {
-//     props: {
-//       product: data,
-//     },
-//   }
-// }
-
-// export const getStaticPaths = async () => {
-//   const req = await fetch("http://localhost:3000/products.json")
-//   const data = await req.json()
-
-//   const paths = data.map((product: any) => {
-//     return {
-//       params: { id: product },
-//     }
-//   })
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const API_URL = process.env.NEXT_PUBLIC_URL
-  const req = await fetch(`${API_URL}/${context.params?.id}.json`)
-    const data = await req.json()
-
-  return {
-    props: { product: data },
-  }
+  const paths = data.map((product: any) => {
+    return {
+      params: { id: product },
+    }
+  })
+  return { paths, fallback: false }
 }
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const req = await fetch(`http://localhost:3000/${params?.id}.json`)
+  const data = await req.json()
+
+  return { props: { product: data } }
+}
+
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//     const API_URL = process.env.NEXT_PUBLIC_URL
+//   const req = await fetch(`${API_URL}/${context.params?.id}.json`)
+//     const data = await req.json()
+
+//   return {
+//     props: { product: data },
+//   }
+// }
 
 type Props = {
   product: {
