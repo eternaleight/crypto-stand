@@ -28,9 +28,10 @@ import { useRouter } from "next/router"
 //   }
 // }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const req = await fetch(`http://localhost:3000/${params?.id}.json`)
-  const data = await req.json()
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const API_URL = process.env.NEXT_PUBLIC_URL
+  const req = await fetch(`${API_URL}/${context.params?.id}.json`)
+    const data = await req.json()
 
   return {
     props: { product: data },
