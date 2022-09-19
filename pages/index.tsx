@@ -3,17 +3,21 @@ import Image from "next/image"
 import CryptoCard from "../compomets/cryptoCard"
 import { motion, useScroll } from "framer-motion"
 import ModalItem from "../pages/modalItem"
-
+import Link from "next/link"
 
 const Home: NextPage<IndexPageProps> = ({ initialIconImageUrl }) => {
   const { scrollYProgress } = useScroll()
   const IconImage = initialIconImageUrl
+  const iconName = 'eternaleight'
 
   return (
     <div className="flex flex-col items-center min-h-screen text-white min-w-screen">
-      <h3 className="absolute text-[25px] text-center top-[435px] z-0">
-        eternaleight
+        <Link href="/eternaleight">
+      <h3 className="absolute text-[25px] text-center top-[435px]">
+        <a className='absolute z-[20] cursor-pointer text-transparent'>{iconName}</a>
+          <a>{iconName}</a>
       </h3>
+        </Link>
       <motion.div
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}
@@ -24,7 +28,7 @@ const Home: NextPage<IndexPageProps> = ({ initialIconImageUrl }) => {
         </div>
       </div>
       <div className="bg-[#111123] w-[100vw] h-[65px]"></div>
-      <div className="profile-default-gradient w-[100vw] h-[280px] mb-[230px]">
+      <div className="profile-default-gradient w-screen h-[280px] mb-[230px]">
         <div className="w-[150px] relative h-[150px] rounded-full bg-[#111123] mx-auto mt-[205px]">
           <div className="absolute top-[5px] left-[5px] ">
             <Image
@@ -57,7 +61,7 @@ const Home: NextPage<IndexPageProps> = ({ initialIconImageUrl }) => {
         </div>
       </div>
       <div className="w-[85vw] flex flex-col items-center">
-        <div className="w-full grid xl:grid-cols-4 lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 max-xs:w-[90vw]">
+        <div className="w-full grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-sm:w-[400px]">
           <CryptoCard />
           <CryptoCard />
           <CryptoCard />
@@ -77,10 +81,8 @@ type IndexPageProps = {
   initialIconImageUrl: string
 }
 
-export const getStaticProps: GetStaticProps<
-  IndexPageProps
-> = async () => {
-const iconImage = "/eternaleight.jpg"
+export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
+  const iconImage = "/eternaleight.jpg"
   return {
     props: {
       initialIconImageUrl: iconImage,

@@ -1,4 +1,3 @@
-import {Box, Modal} from "@mui/material"
 import transakSDK from "@transak/transak-sdk"
 import { motion } from "framer-motion"
 
