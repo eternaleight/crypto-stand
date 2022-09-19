@@ -1,30 +1,39 @@
-import { GetStaticProps } from "next"
+import { GetServerSideProps, GetStaticProps } from "next"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export const getStaticPaths = async () => {
-  const req = await fetch("http://localhost:3000/products.json")
-  const data = await req.json()
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const req = await fetch(`http://localhost:3000/${params?.id}.json`)
+//   const data = await req.json()
 
-  const paths = data.map((product: any) => {
-    return {
-      params: { id: product },
-    }
-  })
-  return {
-    paths,
-    fallback: false,
-  }
-}
+//   return {
+//     props: {
+//       product: data,
+//     },
+//   }
+// }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+// export const getStaticPaths = async () => {
+//   const req = await fetch("http://localhost:3000/products.json")
+//   const data = await req.json()
+
+//   const paths = data.map((product: any) => {
+//     return {
+//       params: { id: product },
+//     }
+//   })
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const req = await fetch(`http://localhost:3000/${params?.id}.json`)
   const data = await req.json()
 
   return {
-    props: {
-      product: data,
-    },
+    props: { product: data },
   }
 }
 
@@ -42,7 +51,7 @@ const Product = ({ product }: Props) => {
 
   return (
     <div>
-      <main className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-55%] text-white'>
+      <main className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-55%] text-white">
         <img
           className="rounded-[8px]"
           src={product.url}
