@@ -16,7 +16,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const req = await fetch(`http://localhost:3000/${params?.id}.json`)
+  const API_URL = process.env.NEXT_PUBLIC_URL
+  const req = await fetch(`${API_URL}/${params?.id}.json`)
   const data = await req.json()
 
   return { props: { product: data } }
