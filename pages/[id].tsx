@@ -74,7 +74,7 @@ const Product = ({ product }: Props) => {
           <For v={[0, (i) => i < 8, (i) => i + 1]}>
             {(i, index) => (
               <button key={i}>
-                {index}番目は[{i}]
+                {index + 1}番目は[{i}]
           <div className={`${style.square} ${style.HYPER}`}></div>
               </button>
             )}
