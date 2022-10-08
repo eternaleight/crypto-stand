@@ -1,4 +1,4 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
+import type { GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import CryptoCard from "../compomets/cryptoCard"
 import { motion, useScroll } from "framer-motion"

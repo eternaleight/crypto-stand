@@ -1,7 +1,7 @@
-import { GetServerSideProps, GetStaticProps } from "next"
+import { GetStaticProps } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/router"
+// import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 import { ReactNode } from "react"
 
@@ -56,8 +56,8 @@ export const For = <T,>({v,children}:{
 }
 
 const Product = ({ product }: Props) => {
-  const router = useRouter()
-  const { id } = router.query
+  // const router = useRouter()
+  // const { id } = router.query
   const style = {
     square: `w-8 h-8`,
     HYPER: `bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500`,

@@ -1,7 +1,7 @@
 import transakSDK from "@transak/transak-sdk"
 import { motion } from "framer-motion"
 
-let transak = () =>
+const transak = () =>
   new transakSDK({
     apiKey: process.env.NEXT_PUBLIC_API, // Your API Key (Required)
     environment: "STAGING", // STAGING/PRODUCTION (Required)
